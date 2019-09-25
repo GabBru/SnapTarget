@@ -14,13 +14,17 @@ import java.util.concurrent.TimeUnit;
 public class GameActivity extends AppCompatActivity {
 
     private static final String FORMAT = "%02d:%02d:%02d";
-    private int seconds, minutes;
     Button back_game;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        String player_name = getIntent().getStringExtra(MainActivity.KEY);
+
+        TextView player = findViewById(R.id.name_player);
+        player.setText(player_name);
 
         final TextView timer_count = findViewById(R.id.timer);
 

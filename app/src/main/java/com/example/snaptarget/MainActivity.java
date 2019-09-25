@@ -3,33 +3,26 @@ package com.example.snaptarget;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-
 public class MainActivity extends AppCompatActivity {
 
-    Button launch_game;
-    Button see_score;
-    EditText player_name;
-
-    String str_playerName;
+    public static final String KEY = "KEY";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        final Button login = findViewById(R.id.button_play);
-        final Button score = findViewById(R.id.button_score);
-        final EditText player_name = findViewById(R.id.input_text_name);
     }
 
     public void launch(View v) {
+
+        final EditText player_name = findViewById(R.id.input_text_name);
+
         Intent intent = new Intent(this, GameActivity.class);
+        intent.putExtra(KEY, player_name.getText().toString());
         startActivity(intent);
     }
 
@@ -38,13 +31,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void clear_texte (){
-        TextView textC = new TextView("");
-        return textC;
-
-
-
-
+    public void clear_texte (View v){
+        final EditText player_name = findViewById(R.id.input_text_name);
+        player_name.setText("");
     }
 }
 
