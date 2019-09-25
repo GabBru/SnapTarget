@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">SnapTarget</string>
+    <string name="app_name"> SnapTarget </string>
+    <string name="jouer"> Jouer </string>
+    <string name="play"> Play </string>
+    <string name="score"> Score </string>
+    <string name="put_nom"> Quel est ton nom jeune Padawan ? </string>
+    <string name="put_name"> What's your name young Padawan ? </string>
+    <string name="save"> Save </string>
+    <string name="enregistrer"> Enregistrer </string>
+    <string name="rejouer"> Je le retente </string>
+    <string name="replay"> Give me another chance </string>
+    <string name="bien_jouer"> Bien joué </string>
+    <string name="congrat"> Congratulation </string>
 </resources>
