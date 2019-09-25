@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Button;
 
 import java.util.concurrent.TimeUnit;
 
@@ -14,6 +15,7 @@ public class GameActivity extends AppCompatActivity {
 
     private static final String FORMAT = "%02d:%02d:%02d";
     private int seconds, minutes;
+    Button back_game;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,5 +45,10 @@ public class GameActivity extends AppCompatActivity {
     public void win_page(View v) {
         Intent intent = new Intent(this, CongratulationActivity.class);
         startActivity(intent);
+    }
+    public void back (View v){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+
     }
 }
