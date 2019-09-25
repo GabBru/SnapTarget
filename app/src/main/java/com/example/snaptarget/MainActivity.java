@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -38,9 +37,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void clear_texte (){
-        TextView textC = new TextView("");
-        return textC;
+    public void clear_texte (View v){
+        final EditText player_name = findViewById(R.id.input_text_name);
+        player_name.setText("");
 
 
 
