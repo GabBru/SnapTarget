@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         final EditText player_name = findViewById(R.id.input_text_name);
     }
 
-    public void launch() {
+    public void launch(View v) {
         Intent intent = new Intent(this, GameActivity.class);
         startActivity(intent);
     }
