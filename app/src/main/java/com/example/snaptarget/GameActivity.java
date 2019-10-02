@@ -25,10 +25,10 @@ public class GameActivity extends AppCompatActivity {
 
         TextView player = findViewById(R.id.name_player);
         player.setText(player_name);
+    }
 
-        final TextView timer_count = findViewById(R.id.timer);
-
-        new CountDownTimer(60000, 1000) {
+    public CountDownTimer getTimer(final TextView timer_count, int millisecs, int interval) {
+        CountDownTimer CountTimer = new CountDownTimer(millisecs, interval) {
             public void onTick(long millisUntilFinished) {
 
                 timer_count.setText("" + String.format(FORMAT,
@@ -42,15 +42,21 @@ public class GameActivity extends AppCompatActivity {
             public void onFinish() {
                 timer_count.setText("Game Over !");
             }
-        }.start();
+        };
+        return CountTimer;
     }
 
+    public void launchTimer(View v){
+        final TextView timer_count = findViewById(R.id.timer);
+        getTimer(timer_count, 60000, 1000).start();
+    }
 
     public void win_page(View v) {
         Intent intent = new Intent(this, CongratulationActivity.class);
         startActivity(intent);
     }
-    public void back (View v){
+
+    public void back(View v) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
 
