@@ -20,6 +20,7 @@ public class GameActivity extends AppCompatActivity {
 
     ArrayList buttonList = new ArrayList<Button>();
     ArrayList choixCouleur = new ArrayList();
+    Random rand = new Random();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +31,6 @@ public class GameActivity extends AppCompatActivity {
 
         TextView player = findViewById(R.id.name_player);
         player.setText(player_name);
-
-//        for (int i = 0; i < buttonList.size(); i++){
-//            buttonList(i).setBackgroundColor()
-//        }
 
         buttonList.add(R.id.button);
         buttonList.add(R.id.button2);
@@ -56,6 +53,7 @@ public class GameActivity extends AppCompatActivity {
         choixCouleur.add(Color.GREEN);
         choixCouleur.add(Color.RED);
         choixCouleur.add(Color.YELLOW);
+
     }
 
     public CountDownTimer getTimer(final TextView timer_count, int millisecs, int interval) {
@@ -71,7 +69,7 @@ public class GameActivity extends AppCompatActivity {
             }
 
             public void onFinish() {
-                timer_count.setText("Game Over !");
+                timer_count.setText(R.string.game_over);
             }
         };
         return CountTimer;
@@ -80,6 +78,8 @@ public class GameActivity extends AppCompatActivity {
     public void launchTimer(View v) {
         final TextView timer_count = findViewById(R.id.timer);
         getTimer(timer_count, 60000, 1000).start();
+        Button butt_play = findViewById(R.id.button19);
+        butt_play.setEnabled(false);
     }
 
     public void win_page(View v) {
@@ -94,10 +94,16 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
+//    public random_all(View v){
+//        // Set random color when arriving on this Activity
+//        for (int i = 0; i < buttonList.size(); i++) {
+//            buttonList.get(i).setBackgroundColor((Integer)choixCouleur.get(rand.nextInt(choixCouleur.size())));
+//            generic_button.setBackgroundColor((Integer)choixCouleur.get(rand.nextInt(choixCouleur.size())));
+//        }
+//    }
+
     public void randomColor(View v) {
-        Random rand = new Random();
         Button button = findViewById(v.getId());
         button.setBackgroundColor((Integer) choixCouleur.get(rand.nextInt(choixCouleur.size())));
-
     }
 }

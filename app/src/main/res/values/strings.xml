@@ -11,4 +11,5 @@
     <string name="replay"> Give me another chance </string>
     <string name="bien_jouer"> Bien joué </string>
     <string name="congrat"> Congratulation </string>
+    <string name="game_over"> Game Over ! </string>
 </resources>
