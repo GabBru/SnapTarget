@@ -20,6 +20,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Set a prompt text to input_text_name
+        EditText player_pseudo = findViewById(R.id.input_text_name);
+        player_pseudo.setHint(R.string.put_name);
+
+        // Using shared preferences
         ArrayList<String> people = new ArrayList<>();
         people.add("Gabriel");
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
@@ -27,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
         SharedPreferences sharedPreferences1 = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
         String string = sharedPreferences1.getString(KEY, "blabla");
-
     }
 
     public void launch(View v) {
@@ -44,9 +48,5 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void clear_texte (View v){
-        final EditText player_name = findViewById(R.id.input_text_name);
-        player_name.setText("");
-    }
+    public void
 }
-

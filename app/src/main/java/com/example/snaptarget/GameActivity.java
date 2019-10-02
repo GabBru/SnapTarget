@@ -14,7 +14,6 @@ import java.util.concurrent.TimeUnit;
 public class GameActivity extends AppCompatActivity {
 
     private static final String FORMAT = "%02d:%02d:%02d";
-    Button back_game;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +24,10 @@ public class GameActivity extends AppCompatActivity {
 
         TextView player = findViewById(R.id.name_player);
         player.setText(player_name);
+
+//        for (int i = 0; i < buttonList.size(); i++){
+//            buttonList(i).setBackgroundColor()
+//        }
     }
 
     public CountDownTimer getTimer(final TextView timer_count, int millisecs, int interval) {

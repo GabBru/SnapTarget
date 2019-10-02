@@ -3,8 +3,8 @@
     <string name="jouer"> Jouer </string>
     <string name="play"> Play </string>
     <string name="score"> Score </string>
-    <string name="put_nom"> Quel est ton nom jeune Padawan ? </string>
-    <string name="put_name"> What\'s your name young Padawan ? </string>
+    <string name="put_nom"> Quel est ton nom Padawan ? </string>
+    <string name="put_name"> What\'s your name Padawan ? </string>
     <string name="save"> Save </string>
     <string name="enregistrer"> Enregistrer </string>
     <string name="rejouer"> Je le retente </string>

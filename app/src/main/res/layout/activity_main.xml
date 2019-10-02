@@ -49,11 +49,12 @@
         android:autofillHints=""
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/put_name"
+        android:text=""
         app:layout_constraintBottom_toTopOf="@+id/button_play"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:onClick="clear_texte"/>
+        app:layout_constraintTop_toTopOf="parent">
+
+    </EditText>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
