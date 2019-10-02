@@ -1,19 +1,27 @@
 package com.example.snaptarget;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Button;
+import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class GameActivity extends AppCompatActivity {
 
     private static final String FORMAT = "%02d:%02d:%02d";
+
+    private int seconds, minutes;
+    Button back_game;
+    ArrayList buttonList = new ArrayList<Button>();
+    ArrayList choixCouleur = new ArrayList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +53,31 @@ public class GameActivity extends AppCompatActivity {
             public void onFinish() {
                 timer_count.setText("Game Over !");
             }
-        };
-        return CountTimer;
-    }
+          };
+                        return CountTimer;
+            }
+
+        buttonList.add(R.id.button);
+        buttonList.add(R.id.button2);
+        buttonList.add(R.id.button3);
+        buttonList.add(R.id.button20);
+        buttonList.add(R.id.button5);
+        buttonList.add(R.id.button6);
+        buttonList.add(R.id.button7);
+        buttonList.add(R.id.button8);
+        buttonList.add(R.id.button9);
+        buttonList.add(R.id.button10);
+        buttonList.add(R.id.button11);
+        buttonList.add(R.id.button12);
+        buttonList.add(R.id.button13);
+        buttonList.add(R.id.button14);
+        buttonList.add(R.id.button15);
+        buttonList.add(R.id.button16);
+
+        choixCouleur.add(Color.BLUE);
+        choixCouleur.add(Color.GREEN);
+        choixCouleur.add(Color.RED);
+        choixCouleur.add(Color.YELLOW);
 
     public void launchTimer(View v){
         final TextView timer_count = findViewById(R.id.timer);
@@ -63,5 +93,14 @@ public class GameActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
 
+
     }
-}
+
+
+        public void randomColor(View v) {
+            Random rand = new Random();
+            Button button = findViewById(v.getId());
+            button.setBackgroundColor((Integer) choixCouleur.get(rand.nextInt(choixCouleur.size())));
+
+        }
+    }
