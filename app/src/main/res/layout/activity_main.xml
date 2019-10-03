@@ -4,39 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backgroundmenu"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/button_play"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="178dp"
+        android:layout_height="98dp"
         android:layout_marginStart="162dp"
-        android:layout_marginTop="134dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="162dp"
-        android:layout_marginBottom="35dp"
+        android:layout_marginBottom="50dp"
+        android:onClick="launch"
         android:text="@string/play"
         app:layout_constraintBottom_toTopOf="@+id/button_score"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_text_name"
-        android:onClick="launch"/>
+        app:layout_constraintTop_toBottomOf="@+id/input_text_name" />
 
     <Button
         android:id="@+id/button_score"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="191dp"
+        android:layout_height="90dp"
         android:layout_marginStart="163dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="160dp"
         android:layout_marginBottom="118dp"
+        android:onClick="see_result"
         android:text="@string/score"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_play"
-        android:onClick="see_result"/>
+        app:layout_constraintTop_toBottomOf="@+id/button_play" />
 
     <EditText
         android:id="@+id/input_text_name"
@@ -46,7 +47,10 @@
         android:layout_marginTop="255dp"
         android:layout_marginEnd="28dp"
         android:layout_marginBottom="122dp"
+        android:fontFamily="@font/xenosphere"
         android:autofillHints=""
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
         android:ems="10"
         android:inputType="textPersonName"
         android:text=""
