@@ -1,15 +1,10 @@
 <resources>
-    <string name="app_name"> SnapTarget </string>
-    <string name="jouer"> Jouer </string>
-    <string name="play"> Play </string>
+    <string name="app_name"> Yu-Gi-Oh touchTarget </string>
+    <string name="play"> Jouer </string>
     <string name="score"> Score </string>
-    <string name="put_nom"> Quel est ton nom Padawan ? </string>
-    <string name="put_name"> What\'s your name Padawan ? </string>
-    <string name="save"> Save </string>
-    <string name="enregistrer"> Enregistrer </string>
-    <string name="rejouer"> Je le retente </string>
-    <string name="replay"> Give me another chance </string>
-    <string name="bien_jouer"> Bien joué </string>
-    <string name="congrat"> Congratulation </string>
+    <string name="put_name"> Quel est ton nom duelliste ? </string>
+    <string name="save"> Sauvegarder </string>
+    <string name="replay"> Je dois devenir plus fort ... </string>
+    <string name="congrat"> Felicitations </string>
     <string name="game_over"> Game Over ! </string>
 </resources>
