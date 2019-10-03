@@ -2,6 +2,7 @@ package com.example.snaptarget;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -32,6 +33,10 @@ public class MainActivity extends AppCompatActivity {
 
         SharedPreferences sharedPreferences1 = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
         String string = sharedPreferences1.getString(KEY, "blabla");
+
+        MediaPlayer music = MediaPlayer.create(getApplicationContext(), R.raw.yugiohmusicbattle);
+        music.setLooping(true);
+        music.start();
     }
 
     public void launch(View v) {
