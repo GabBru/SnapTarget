@@ -17,16 +17,18 @@ import java.util.concurrent.TimeUnit;
 public class GameActivity extends AppCompatActivity {
 
     private static final String FORMAT = "%02d:%02d:%02d";
+    public static final String KEYKONG= "KEY";
 
     ArrayList buttonList = new ArrayList<Button>();
     ArrayList choixCouleur = new ArrayList();
+    String player_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        String player_name = getIntent().getStringExtra(MainActivity.KEY);
+         player_name = getIntent().getStringExtra(MainActivity.KEY);
 
         TextView player = findViewById(R.id.name_player);
         player.setText(player_name);
@@ -72,6 +74,7 @@ public class GameActivity extends AppCompatActivity {
 
             public void onFinish() {
                 timer_count.setText("Game Over !");
+                win_page();
             }
         };
         return CountTimer;
@@ -82,8 +85,9 @@ public class GameActivity extends AppCompatActivity {
         getTimer(timer_count, 60000, 1000).start();
     }
 
-    public void win_page(View v) {
+    public void win_page() {
         Intent intent = new Intent(this, CongratulationActivity.class);
+        intent.putExtra(KEYKONG,player_name);
         startActivity(intent);
     }
 
