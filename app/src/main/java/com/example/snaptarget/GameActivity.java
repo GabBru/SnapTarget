@@ -6,11 +6,14 @@ import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TableLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import org.w3c.dom.Text;
 
@@ -18,23 +21,27 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+import pl.droidsonroids.gif.GifImageView;
+
 public class GameActivity extends AppCompatActivity {
 
     private static final String FORMAT = "%02d:%02d";
     public static final String K_SCORE = "K_SCR";
     public static final String K_NAME = "K_NAME";
-    public MediaPlayer music;
 
     private ArrayList<Button> buttonList = new ArrayList<>();
     private ArrayList choixIcon = new ArrayList();
     private Random rand = new Random();
     private int score = 0;
     private String player_name;
+    private GifImageView myGifScreen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        myGifScreen = findViewById(R.id.gifgame);
 
         TextView score_text = findViewById(R.id.text_score);
         score_text.setText("Score : 0 ");
@@ -69,6 +76,7 @@ public class GameActivity extends AppCompatActivity {
         choixIcon.add(R.drawable.kuriboh);
         choixIcon.add(R.drawable.darkmagician);
 
+        setTagToButton(buttonList);
         random_all();
         buttons_free(false);
     }
@@ -90,14 +98,31 @@ public class GameActivity extends AppCompatActivity {
             public void onFinish() {
                 timer_count.setTextSize(20);
                 timer_count.setText(R.string.game_over);
-                buttons_free(false);
-                Intent intent = new Intent(getApplicationContext(), CongratulationActivity.class);
-                intent.putExtra(K_SCORE, Integer.toString(score));
-                intent.putExtra(K_NAME, player_name);
-                startActivity(intent);
+
+                myGifScreen.setBackgroundResource(R.drawable.gifeclair);
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(getApplicationContext(), CongratulationActivity.class);
+                        intent.putExtra(K_SCORE, Integer.toString(score));
+                        intent.putExtra(K_NAME, player_name);
+                        startActivity(intent);
+                    }
+                }, 2000);
             }
         };
         return CountTimer;
+    }
+
+    public void setTagToButton(ArrayList<Button> list){
+        if (list.isEmpty())
+            return;
+
+        for (int i = 0; i < list.size(); i++){
+            list.get(i).setTag(i);
+        }
     }
 
     public void launchTimer(View v) {
@@ -106,7 +131,11 @@ public class GameActivity extends AppCompatActivity {
         Button butt_play = findViewById(v.getId());
         butt_play.setText("");
         butt_play.setEnabled(false);
-        butt_play.setBackgroundResource((Integer) choixIcon.get(rand.nextInt(choixIcon.size())));
+
+        int r = rand.nextInt(buttonList.size());
+        butt_play.setBackground(buttonList.get(r).getBackground());
+        butt_play.setTag(buttonList.get(r).getTag());
+
         buttons_free(true);
     }
 
@@ -119,33 +148,36 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
-    public void win_page(View v) {
-        Intent intent = new Intent(this, CongratulationActivity.class);
-        startActivity(intent);
-    }
-
     public void random_all() {
         // Set random color when arriving on this Activity
         Button mySelectedButton;
         for (int i = 0; i < buttonList.size(); i++) {
+            int r = rand.nextInt(choixIcon.size());
             mySelectedButton = buttonList.get(i);
-            mySelectedButton.setBackgroundResource((Integer) choixIcon.get(rand.nextInt(choixIcon.size())));
+            mySelectedButton.setBackgroundResource((Integer) choixIcon.get(r));
+            mySelectedButton.setTag(r);
         }
     }
 
     public void ActionColorButton(View v) {
-        Button button = findViewById(v.getId());
-        button.setBackgroundResource((Integer) choixIcon.get(rand.nextInt(choixIcon.size())));
+
+
+        int r = rand.nextInt(choixIcon.size());
+        v.setBackgroundResource((Integer) choixIcon.get(r));
+        v.setTag(r);
+
         TextView score_text = findViewById(R.id.text_score);
         Button butt_target = findViewById(R.id.button19);
 
-        if (v.getId() == butt_target.getId()) {
+        if (v.getTag().equals(butt_target.getTag())) {
+            r = rand.nextInt(buttonList.size());
+            butt_target.setBackground(buttonList.get(r).getBackground());
+            butt_target.setTag(buttonList.get(r).getTag());
             score += 3;
         } else {
             score -= 1;
         }
 
         score_text.setText("Score : " + score);
-        butt_target.setBackgroundResource((Integer) choixIcon.get(rand.nextInt(choixIcon.size())));
     }
 }
