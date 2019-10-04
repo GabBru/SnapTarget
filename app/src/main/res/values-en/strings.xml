@@ -5,7 +5,7 @@
     <string name="score"> Score </string>
     <string name="put_name"> What\'s your name duelist ? </string>
     <string name="save"> Save </string>
-    <string name="replay"> I need to be stronger ... </string>
+    <string name="replay"> I need to be more stronger ... </string>
     <string name="congrat"> Congratulation </string>
     <string name="game_over"> Game Over ! </string>
 </resources>
