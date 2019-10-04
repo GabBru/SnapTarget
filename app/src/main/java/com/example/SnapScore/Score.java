@@ -2,14 +2,13 @@ package com.example.SnapScore;
 
 public class Score {
 
-    private int score, day, month, year, remaining_time;
+    private int score, day, month, year;
 
-    public Score(int score, int day, int month, int year, int remaining_time) {
+    public Score(int score, int day, int month, int year) {
         this.score = score;
         this.day = day;
         this.month = month;
         this.year = year;
-        this.remaining_time = remaining_time;
     }
 
     public int getScore() {
@@ -28,10 +27,6 @@ public class Score {
         return year;
     }
 
-    public int getRemaining_time() {
-        return remaining_time;
-    }
-
     public void setScore(int score) {
         this.score = score;
     }
@@ -48,8 +43,5 @@ public class Score {
         this.year = year;
     }
 
-    public void setRemaining_time(int remaining_time) {
-        this.remaining_time = remaining_time;
-    }
 }
 

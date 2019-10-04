@@ -7,58 +7,81 @@
     tools:context=".CongratulationActivity">
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/button_replay"
         android:layout_width="187dp"
         android:layout_height="79dp"
         android:layout_marginStart="112dp"
+        android:layout_marginTop="35dp"
         android:layout_marginEnd="112dp"
         android:layout_marginBottom="112dp"
         android:text="@string/replay"
+        android:onClick="startNewGame"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="187dp"
         android:layout_height="79dp"
         android:layout_marginStart="112dp"
-        android:layout_marginTop="145dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="112dp"
-        android:layout_marginBottom="18dp"
+        android:layout_marginBottom="35dp"
         android:text="@string/save"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintBottom_toTopOf="@+id/button_replay"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.39" />
+        app:layout_constraintTop_toBottomOf="@+id/score_result" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="305dp"
-        android:layout_height="104dp"
+        android:layout_width="308dp"
+        android:layout_height="54dp"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="105dp"
-        android:layout_marginEnd="46dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginBottom="29dp"
+        android:fontFamily="@font/xenosphere"
+        android:gravity="center"
         android:text="@string/congrat"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView_name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView_name"
         android:layout_width="352dp"
         android:layout_height="40dp"
-        android:layout_marginStart="29dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="48dp"
         android:layout_marginEnd="30dp"
+        android:layout_marginBottom="55dp"
+        android:fontFamily="@font/xenosphere"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/score_result"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/score_result"
+        android:layout_width="317dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="47dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/xenosphere"
+        android:gravity="center"
+        android:textColor="#FAFAD2"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_name" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

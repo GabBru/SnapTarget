@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name"> Yu-Gi-Oh touchTarget </string>
+    <string name="play"> Play </string>
+    <string name="score"> Score </string>
+    <string name="put_name"> What\'s your name duelist ? </string>
+    <string name="save"> Save </string>
+    <string name="replay"> I need to be stronger ... </string>
+    <string name="congrat"> Congratulation </string>
+    <string name="game_over"> Game Over ! </string>
+</resources>
