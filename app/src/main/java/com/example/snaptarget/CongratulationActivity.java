@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class CongratulationActivity extends AppCompatActivity {
+  
+    String player_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -119,11 +119,6 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
-    public void win_page(View v) {
-        Intent intent = new Intent(this, CongratulationActivity.class);
-        startActivity(intent);
-    }
-
     public void random_all() {
         // Set random color when arriving on this Activity
         Button mySelectedButton;
