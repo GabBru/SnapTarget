@@ -13,6 +13,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class CongratulationActivity extends AppCompatActivity {
+  
+    String player_name;
 
     public static final String KEY_SAVE = "KEY_SAVE";
     public static final String SHARED_PREF = "SHARED_PREF";
