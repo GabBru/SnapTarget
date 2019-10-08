@@ -123,7 +123,7 @@ public class CongratulationActivity extends AppCompatActivity {
             public void run() {
 
                 sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
-                sharedPreferences.edit().putString(player_name, score).apply();
+                sharedPreferences.edit().putString(KEY_SAVE, player_name).apply();
                 sharedPreferences.edit().putString(KEY_SCORE, score).apply();
 
                 Intent intent = new Intent(CongratulationActivity.this, MainActivity.class);

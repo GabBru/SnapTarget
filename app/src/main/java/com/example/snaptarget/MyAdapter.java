@@ -9,57 +9,19 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
-    private final List<Pair<String, String>> characters = Arrays.asList(
-            Pair.create("Lyra Belacqua", " 8"),
-            Pair.create("Pantalaimon", " 34"),
-            Pair.create("Roger Parslow", " 345"),
-            Pair.create("Lord Asriel", " 234"),
-            Pair.create("Marisa Coulter", " 654"),
-            Pair.create("Iorek Byrnison", " 098"),
-            Pair.create("Serafina Pekkala", " 45."),
-            Pair.create("Lee Scoresby", " 567"),
-            Pair.create("Ma Costa", " 9878"),
-            Pair.create("John Faa", " 456"),
-            Pair.create("Lyra Belacqua", " 8"),
-            Pair.create("Pantalaimon", " 34"),
-            Pair.create("Roger Parslow", " 345"),
-            Pair.create("Lord Asriel", " 234"),
-            Pair.create("Marisa Coulter", " 654"),
-            Pair.create("Iorek Byrnison", " 098"),
-            Pair.create("Serafina Pekkala", " 45."),
-            Pair.create("Lee Scoresby", " 567"),
-            Pair.create("Ma Costa", " 9878"),
-            Pair.create("John Faa", " 456"),
-            Pair.create("Lyra Belacqua", " 8"),
-            Pair.create("Pantalaimon", " 34"),
-            Pair.create("Roger Parslow", " 345"),
-            Pair.create("Lord Asriel", " 234"),
-            Pair.create("Marisa Coulter", " 654"),
-            Pair.create("Iorek Byrnison", " 098"),
-            Pair.create("Serafina Pekkala", " 45."),
-            Pair.create("Lee Scoresby", " 567"),
-            Pair.create("Ma Costa", " 9878"),
-            Pair.create("John Faa", " 456"),
-            Pair.create("Lyra Belacqua", " 8"),
-            Pair.create("Pantalaimon", " 34"),
-            Pair.create("Roger Parslow", " 345"),
-            Pair.create("Lord Asriel", " 234"),
-            Pair.create("Marisa Coulter", " 654"),
-            Pair.create("Iorek Byrnison", " 098"),
-            Pair.create("Serafina Pekkala", " 45."),
-            Pair.create("Lee Scoresby", " 567"),
-            Pair.create("Ma Costa", " 9878"),
-            Pair.create("John Faa", " 456")
-    );
+    private  List<Pair<String, String>> pairList;
+
+    public MyAdapter(List<Pair<String, String>> characters) {
+        this.pairList =characters;
+    }
 
     @Override
     public int getItemCount() {
-        return characters.size();
+        return pairList.size();
     }
 
     @Override
@@ -72,7 +34,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         System.out.println("bind ");
-        Pair<String, String> pair = characters.get(position);
+        Pair<String, String> pair = pairList.get(position);
         holder.display(pair);
     }
 
