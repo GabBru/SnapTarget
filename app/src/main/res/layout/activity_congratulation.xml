@@ -2,8 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cLayoutCongrat"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/tumblr"
     tools:context=".CongratulationActivity">
 
     <Button
@@ -11,9 +13,9 @@
         android:layout_width="187dp"
         android:layout_height="79dp"
         android:layout_marginStart="112dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="112dp"
-        android:layout_marginBottom="112dp"
+        android:layout_marginBottom="120dp"
         android:background="@drawable/button_menu"
         android:fontFamily="@font/xenosphere"
         android:textSize="15sp"
@@ -24,15 +26,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
 
-    <pl.droidsonroids.gif.GifImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/tumblr"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/button"
         android:layout_width="187dp"
@@ -40,11 +33,12 @@
         android:layout_marginStart="112dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="112dp"
-        android:layout_marginBottom="35dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/button_menu"
         android:fontFamily="@font/xenosphere"
         android:textSize="18sp"
         android:text="@string/save"
+        android:onClick="saveGame"
         app:layout_constraintBottom_toTopOf="@+id/button_replay"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,8 +46,8 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="363dp"
-        android:layout_height="109dp"
+        android:layout_width="366dp"
+        android:layout_height="69dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="68dp"
         android:layout_marginEnd="43dp"
@@ -69,14 +63,16 @@
 
     <TextView
         android:id="@+id/textView_name"
-        android:layout_width="352dp"
-        android:layout_height="40dp"
+        android:layout_width="350dp"
+        android:layout_height="76dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="48dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="55dp"
         android:fontFamily="@font/xenosphere"
+        android:textColor="#0892d0"
         android:gravity="center"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/score_result"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -84,8 +80,8 @@
 
     <TextView
         android:id="@+id/score_result"
-        android:layout_width="317dp"
-        android:layout_height="53dp"
+        android:layout_width="314dp"
+        android:layout_height="52dp"
         android:layout_marginStart="48dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="47dp"
@@ -98,5 +94,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_name" />
+
+<!--    <pl.droidsonroids.gif.GifImageView-->
+<!--        android:id="@+id/gifbackground"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="@drawable/tumblr"-->
+<!--        android:-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

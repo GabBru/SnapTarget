@@ -9,6 +9,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Load extends AppCompatActivity {
 
+    /**
+     * Launch the intro music from @raw folder. Also simulate a loading time using Handler {android.os.Handler}.
+     *
+     * @param savedInstanceState savedInstanceState
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_load);

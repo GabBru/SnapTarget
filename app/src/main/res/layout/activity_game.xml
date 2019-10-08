@@ -2,11 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/screen_game"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgroundgame"
-    tools:context=".GameActivity"
-    android:id="@+id/screen_game">
+    tools:context=".GameActivity">
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/gifgame"
@@ -15,27 +15,37 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/name_player"
-        android:layout_width="292dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="59dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="59dp"
-        android:layout_marginBottom="5dp"
-        android:background="#00000000"
-        android:fontFamily="@font/xenosphere"
-        android:gravity="center"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="409dp"
+        android:layout_height="200dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_score" />
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout">
+
+        <TextView
+            android:id="@+id/textView123"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#00000000"
+            android:fontFamily="@font/xenosphere"
+            android:gravity="center"
+            android:textColor="#f0ff00"
+            android:textSize="200sp" />
+    </FrameLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:max="60000"
+        android:progress="60000"
+        android:layout_width="match_parent"
+        android:layout_height="30sp"
+        app:layout_constraintTop_toBottomOf="@+id/timer"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout" />
+
 
     <TableLayout
         android:id="@+id/tableLayout"
@@ -170,8 +180,8 @@
 
     <Button
         android:id="@+id/button19"
-        android:layout_width="104dp"
-        android:layout_height="81dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginStart="154dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="154dp"
@@ -208,12 +218,12 @@
         android:layout_marginStart="122dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="123dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="0dp"
         android:fontFamily="@font/xenosphere"
         android:gravity="center"
-        android:textSize="20sp"
         android:textColor="#f0ff00"
-        app:layout_constraintBottom_toTopOf="@+id/name_player"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button19" />

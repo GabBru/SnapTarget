@@ -5,7 +5,12 @@
     <string name="score"> Score </string>
     <string name="put_name"> What\'s your name duelist ? </string>
     <string name="save"> Save </string>
+    <string name="cancel"> Cancel </string>
     <string name="replay"> I need to be more stronger ... </string>
     <string name="congrat"> Congratulation </string>
     <string name="game_over"> Game Over ! </string>
+    <string name="pb_user_name"> Your player name should contain at least 1 and up to 20 characters. </string>
+    <string name="saving"> You\'re going to save your score. Please confirm. </string>
+    <string name="text_over"> Exodia ate your pathetic soul … </string>
+    <string name="difficulty"> Select the difficulty level </string>
 </resources>

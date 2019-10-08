@@ -11,10 +11,10 @@
         android:largeHeap="true"
         android:hardwareAccelerated="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".ResultActivity"></activity>
-        <activity android:name=".CongratulationActivity" />
-        <activity android:name=".GameActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".ResultActivity" android:screenOrientation="portrait"> </activity>
+        <activity android:name=".CongratulationActivity" android:screenOrientation="portrait"> </activity>
+        <activity android:name=".GameActivity" android:screenOrientation="portrait"> </activity>
+        <activity android:name=".MainActivity" android:screenOrientation="portrait"> </activity>
         <activity android:name=".Load"
             android:screenOrientation="portrait">
             <intent-filter>
