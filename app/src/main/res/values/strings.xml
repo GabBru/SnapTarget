@@ -12,4 +12,5 @@
     <string name="saving"> Vous etes sur le point de sauvegarder votre score. \nConfirmer ? </string>
     <string name="text_over"> Exodia vous a explose ... </string>
     <string name="difficulty"> Selectionnez la difficulte </string>
+    <string name="back_menu"> Menu </string>
 </resources>

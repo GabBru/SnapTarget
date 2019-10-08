@@ -13,4 +13,5 @@
     <string name="saving"> You\'re going to save your score. Please confirm. </string>
     <string name="text_over"> Exodia ate your pathetic soul … </string>
     <string name="difficulty"> Select the difficulty level </string>
+    <string name="back_menu"> Menu </string>
 </resources>

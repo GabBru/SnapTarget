@@ -2,6 +2,7 @@ package com.example.snaptarget;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -31,6 +32,7 @@ public class GameActivity extends AppCompatActivity {
     private GifImageView myGifScreen;
     private CountDownTimer CountTimer;
     private ProgressBar progressBar;
+    private MediaPlayer music;
 
     private String player_name;
     private String difficulty;
@@ -90,8 +92,7 @@ public class GameActivity extends AppCompatActivity {
             choixIcon.add(R.drawable.obelisk);
             choixIcon.add(R.drawable.jinzo);
             choixIcon.add(R.drawable.timewizard);
-        }
-        else if (difficulty.equals("2")) {
+        } else if (difficulty.equals("2")) {
             choixIcon.add(R.drawable.jinzo);
             choixIcon.add(R.drawable.timewizard);
         }
@@ -103,6 +104,16 @@ public class GameActivity extends AppCompatActivity {
 
         random_all();
         buttons_free(false);
+
+        if (difficulty.equals("3")) {
+            music = MediaPlayer.create(this, R.raw.scc2);
+        } else if (difficulty.equals("2")) {
+            music = MediaPlayer.create(this, R.raw.pittl);
+        } else {
+            music = MediaPlayer.create(this, R.raw.yugiohmusicbattle);
+        }
+        music.setLooping(true);
+        music.start();
 
         final Handler handler = new Handler();
         final TextView textView = findViewById(R.id.textView123);
@@ -145,12 +156,12 @@ public class GameActivity extends AppCompatActivity {
 
                 timer_count.setText("" + String.format(FORMAT,
                         (millisUntilFinished / 1000),
-                        (millisUntilFinished % 1000)));
+                        (millisUntilFinished % 1000) / 10));
                 if (millisUntilFinished < 10000) {
                     timer_count.setTextColor(Color.RED);
                 }
                 remaining_time = millisUntilFinished;
-                progressBar.setProgress((int)millisUntilFinished);
+                progressBar.setProgress((int) millisUntilFinished);
                 if (difficulty.equals("3")) {
                     if ((millisUntilFinished / 1000) % 2 == 0)
                         random_all();
@@ -180,6 +191,8 @@ public class GameActivity extends AppCompatActivity {
         myGifScreen.setBackgroundResource(R.drawable.gifeclair);
 
         CountTimer.cancel();
+
+        music.stop();
 
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
@@ -296,13 +309,12 @@ public class GameActivity extends AppCompatActivity {
             // We set a new background to the target button and the new corresponding tag
             butt_target.setBackground(buttonList.get(r).getBackground());
             butt_target.setTag(buttonList.get(r).getTag());
-            if (difficulty.equals("2")){
+            if (difficulty.equals("2")) {
                 CountTimer.cancel();
-                CountTimer = getTimer(timer_count, remaining_time - 1000, timer_interval);
-            }
-            else if (difficulty.equals("3")){
+                CountTimer = getTimer(timer_count, remaining_time - 10000, timer_interval).start();
+            } else if (difficulty.equals("3")) {
                 CountTimer.cancel();
-                CountTimer = getTimer(timer_count, remaining_time - 3000, timer_interval);
+                CountTimer = getTimer(timer_count, remaining_time - 30000, timer_interval).start();
             }
             score = score < 100 ? score - 1 : score - (1 * (score / 10));
         }

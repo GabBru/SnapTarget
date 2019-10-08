@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String KEY = "KEY";
     public static final String KEY_DIFF = "KEY_DIFF";
     private int difficulty;
+    private MediaPlayer music;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         EditText player_pseudo = findViewById(R.id.input_text_name);
         player_pseudo.setHint(R.string.put_name);
 
-        MediaPlayer music = MediaPlayer.create(getApplicationContext(), R.raw.yugiohmusicbattle);
+        music = MediaPlayer.create(getApplicationContext(), R.raw.yugiohmusicbattle);
         music.setLooping(true);
         music.start();
 
@@ -74,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, GameActivity.class);
             intent.putExtra(KEY, player_name.getText().toString());
             intent.putExtra(KEY_DIFF, Integer.toString(difficulty));
+            music.stop();
             startActivity(intent);
         }
     }

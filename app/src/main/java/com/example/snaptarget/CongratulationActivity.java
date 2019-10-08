@@ -3,6 +3,7 @@ package com.example.snaptarget;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Gravity;
@@ -26,6 +27,7 @@ public class CongratulationActivity extends AppCompatActivity {
     private String difficulty;
 
     private SharedPreferences sharedPreferences;
+    private MediaPlayer music;
 
     /**
      * Directly executed when arriving to this activity.
@@ -62,9 +64,17 @@ public class CongratulationActivity extends AppCompatActivity {
             text_congrat.setText(R.string.text_over);
             text_name.setVisibility(View.GONE);
 
+            music = MediaPlayer.create(this, R.raw.tristesse);
+            music.setLooping(true);
+            music.start();
+
         } else {
             score = getIntent().getStringExtra(GameActivity.K_SCORE);
             score_result.setText("SCORE " + score);
+
+            music = MediaPlayer.create(this, R.raw.happy);
+            music.setLooping(true);
+            music.start();
         }
     }
 
@@ -76,6 +86,7 @@ public class CongratulationActivity extends AppCompatActivity {
     public void startNewGame(View v) {
         Intent intent = new Intent(this, GameActivity.class);
         intent.putExtra(MainActivity.KEY_DIFF, difficulty);
+        music.stop();
         startActivity(intent);
     }
 
@@ -123,14 +134,20 @@ public class CongratulationActivity extends AppCompatActivity {
             public void run() {
 
                 sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
-                sharedPreferences.edit().putString(KEY_SAVE, player_name).apply();
-                sharedPreferences.edit().putString(KEY_SCORE, score).apply();
+                sharedPreferences.edit().putString(KEY_SAVE, player_name + "       ").apply();
+                sharedPreferences.edit().putString(KEY_SCORE, score + "    ").apply();
 
                 Intent intent = new Intent(CongratulationActivity.this, MainActivity.class);
                 startActivity(intent);
 
             }
         }, 3000);
+    }
+
+    public void back_menu(View v) {
+        Intent intent = new Intent(this, MainActivity.class);
+        music.stop();
+        startActivity(intent);
     }
         //      SharedPreferences sharedPreferences1 = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
 //      String string = sharedPreferences1.getString(KEY_SAVE, "Score non enregistré ... ");

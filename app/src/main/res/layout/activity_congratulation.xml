@@ -95,7 +95,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_name" />
 
-<!--    <pl.droidsonroids.gif.GifImageView-->
+    <Button
+        android:id="@+id/button_menu"
+        android:layout_width="187dp"
+        android:layout_height="79dp"
+        android:background="@drawable/button_menu"
+        android:fontFamily="@font/xenosphere"
+        android:text="@string/back_menu"
+        android:textSize="18sp"
+        android:onClick="back_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_replay" />
+
+    <!--    <pl.droidsonroids.gif.GifImageView-->
 <!--        android:id="@+id/gifbackground"-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="match_parent"-->

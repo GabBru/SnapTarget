@@ -10,4 +10,5 @@
         android:soundEffectsEnabled="false"
         android:layout_height="match_parent"
         android:id="@+id/ListScore" />
+
 </RelativeLayout>
