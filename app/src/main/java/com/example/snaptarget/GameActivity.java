@@ -14,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import pl.droidsonroids.gif.GifImageView;
@@ -34,11 +33,12 @@ public class GameActivity extends AppCompatActivity {
     private ProgressBar progressBar;
 
     private String player_name;
+    private String difficulty;
     private Random rand = new Random();
     private boolean gameOver = false;
     private int score = 0;
+    private int timer_interval = 10;
     private long remaining_time;
-    private String difficulty;
 
     /**
      * Directly executed when arriving to this activity.
@@ -57,9 +57,11 @@ public class GameActivity extends AppCompatActivity {
         myGifScreen = findViewById(R.id.gifgame);
 
         progressBar = findViewById(R.id.progress_bar);
+        progressBar.setVisibility(View.INVISIBLE);
 
-        TextView score_text = findViewById(R.id.text_score);
+        final TextView score_text = findViewById(R.id.text_score);
         score_text.setText("Score : 0 ");
+        score_text.setVisibility(View.INVISIBLE);
 
         player_name = getIntent().getStringExtra(MainActivity.KEY);
         difficulty = getIntent().getStringExtra(MainActivity.KEY_DIFF);
@@ -113,6 +115,7 @@ public class GameActivity extends AppCompatActivity {
                     handler.postDelayed(this, 1000);
                 else {
                     textView.setVisibility(View.GONE);
+                    score_text.setVisibility(View.VISIBLE);
                     launchTimer();
                 }
             }
@@ -141,17 +144,15 @@ public class GameActivity extends AppCompatActivity {
             public void onTick(long millisUntilFinished) {
 
                 timer_count.setText("" + String.format(FORMAT,
-                        TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished) - TimeUnit.HOURS.toMinutes(
-                                TimeUnit.MILLISECONDS.toHours(millisUntilFinished)),
-                        TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) - TimeUnit.MINUTES.toSeconds(
-                                TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
+                        (millisUntilFinished / 1000),
+                        (millisUntilFinished % 1000)));
                 if (millisUntilFinished < 10000) {
                     timer_count.setTextColor(Color.RED);
                 }
                 remaining_time = millisUntilFinished;
                 progressBar.setProgress((int)millisUntilFinished);
                 if (difficulty.equals("3")) {
-                    if (millisUntilFinished % 2 == 0)
+                    if ((millisUntilFinished / 1000) % 2 == 0)
                         random_all();
                 }
             }
@@ -202,7 +203,7 @@ public class GameActivity extends AppCompatActivity {
      */
     public void launchTimer() {
         final TextView timer_count = findViewById(R.id.timer);
-        getTimer(timer_count, 60000, 1000).start();
+        getTimer(timer_count, 60000, timer_interval).start();
 
         Button butt_play = findViewById(R.id.button19);
         butt_play.setEnabled(false);
@@ -215,6 +216,8 @@ public class GameActivity extends AppCompatActivity {
         butt_play.setTag(buttonList.get(r).getTag());
 
         buttons_free(true);
+
+        progressBar.setVisibility(View.VISIBLE);
     }
 
     /**
@@ -272,7 +275,7 @@ public class GameActivity extends AppCompatActivity {
             gameOver = true;
             CountTimer.onFinish();
         } else if (v.getTag().equals(butt_target.getTag())) {
-            // equals = we select a new random button from those that have been already set
+            // EQUALS = we select a new random button from those that have been already set
             int r = rand.nextInt(buttonList.size());
             while (buttonList.get(r).getTag().equals(choixIcon.size() - 1)) {
                 r = rand.nextInt(buttonList.size());
@@ -281,11 +284,11 @@ public class GameActivity extends AppCompatActivity {
             butt_target.setBackground(buttonList.get(r).getBackground());
             butt_target.setTag(buttonList.get(r).getTag());
             CountTimer.cancel();
-            CountTimer = getTimer(timer_count, remaining_time + 1000, 1000).start();
+            CountTimer = getTimer(timer_count, remaining_time + 1000, timer_interval).start();
             score = score < 50 ? score + 3 : score + (3 * (score / 50));
         } else {
             random_all();
-            // not equals = we select a new random button from those that have been already set
+            // NOT EQUALS = we select a new random button from those that have been already set
             int r = rand.nextInt(buttonList.size());
             while (buttonList.get(r).getTag().equals(choixIcon.size() - 1)) {
                 r = rand.nextInt(buttonList.size());
@@ -293,6 +296,14 @@ public class GameActivity extends AppCompatActivity {
             // We set a new background to the target button and the new corresponding tag
             butt_target.setBackground(buttonList.get(r).getBackground());
             butt_target.setTag(buttonList.get(r).getTag());
+            if (difficulty.equals("2")){
+                CountTimer.cancel();
+                CountTimer = getTimer(timer_count, remaining_time - 1000, timer_interval);
+            }
+            else if (difficulty.equals("3")){
+                CountTimer.cancel();
+                CountTimer = getTimer(timer_count, remaining_time - 3000, timer_interval);
+            }
             score = score < 100 ? score - 1 : score - (1 * (score / 10));
         }
 

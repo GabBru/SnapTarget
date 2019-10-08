@@ -25,6 +25,8 @@ public class CongratulationActivity extends AppCompatActivity {
     private boolean gameOver;
     private String difficulty;
 
+    private SharedPreferences sharedPreferences;
+
     /**
      * Directly executed when arriving to this activity.
      * <p>
@@ -120,8 +122,8 @@ public class CongratulationActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
-                sharedPreferences.edit().putString(KEY_SAVE, player_name).apply();
+                sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
+                sharedPreferences.edit().putString(player_name, score).apply();
                 sharedPreferences.edit().putString(KEY_SCORE, score).apply();
 
                 Intent intent = new Intent(CongratulationActivity.this, MainActivity.class);
@@ -130,7 +132,6 @@ public class CongratulationActivity extends AppCompatActivity {
             }
         }, 3000);
     }
-
         //      SharedPreferences sharedPreferences1 = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
 //      String string = sharedPreferences1.getString(KEY_SAVE, "Score non enregistré ... ");
 }

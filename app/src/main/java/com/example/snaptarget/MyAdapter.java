@@ -1,7 +1,6 @@
 package com.example.snaptarget;
 
 import android.app.AlertDialog;
-import android.content.SharedPreferences;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,11 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
-
-import static android.content.Context.MODE_PRIVATE;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+
     private final List<Pair<String, String>> characters = Arrays.asList(
             Pair.create("Lyra Belacqua", " 8"),
             Pair.create("Pantalaimon", " 34"),
